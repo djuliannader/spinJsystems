@@ -1,10 +1,14 @@
 push!(LOAD_PATH, pwd())
 using LinearAlgebra
 using QuantumOptics
-import diagonalization
-import troterization
-import wigner
-import statistics
+include("modules/diagonalization.jl")
+include("modules/troterization.jl")
+include("modules/wigner.jl")
+include("modules/statistics.jl")
+using .diagonalization
+using .troterization
+using .wigner
+using .statistics
 
 
 # ----- Imput parameters  ----

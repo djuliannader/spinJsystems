@@ -2,8 +2,10 @@ module wigner
 push!(LOAD_PATH, pwd())
 using LinearAlgebra
 using QuantumOptics
-import diagonalization
-import troterization
+include("diagonalization.jl")
+include("troterization.jl")
+using .diagonalization
+using .troterization
 export husimif
 export wignerf
 export buildingstate

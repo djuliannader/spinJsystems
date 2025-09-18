@@ -1,22 +1,29 @@
+module main_kickedLMG
 push!(LOAD_PATH, pwd())
 using LinearAlgebra
 using QuantumOptics
-import diagonalization
-import troterization
-import wigner
-import statistics
+include("modules/diagonalization.jl")
+include("modules/troterization.jl")
+include("modules/wigner.jl")
+include("modules/statistics.jl")
+using .diagonalization
+using .troterization
+using .wigner
+using .statistics
+
+
 
 
 # ----- Imput parameters  ----
 k = 1                      # state of interest
 J=50                       # System size
 ep=1.0                     # LMG parameter
-#gx=-0.95                   # LMG parameter
-gx=-0.25                   # LMG parameter
+gx=-0.95                   # LMG parameter
+#gx=-0.25                   # LMG parameter
 gy= 3*gx                   # LMG parameter
 epsilon = 0.01             # strength of the Kick
-#tau = 2.89134              # period of the kick
-tau = 1              # period of the kick
+#tau = 2.89134             # period of the kick
+tau = 2.89134/2            # period of the kick
 NN=100                     # Size of the Grid
 name1="output/wignertest_kicked.dat"     # Wigner output file
 name2="output/husimitest_kicked.dat"     # Husimi output file
@@ -61,7 +68,7 @@ qfi_E = 4*real(vec0t*(Jz^2)*vec0-(vec0t*(Jz)*vec0)^2)/J
 #
 open("output/resonances_kicked.dat","w") do io
 tint=0.01
-T = [i*tint for i in 5:300]
+T = [i*tint for i in 20:500]
 for tinst in T
    Floquet = exp(-im*tinst*HH0)*exp(-im*epsilon*Kop)
    test1 = statistics.expectation(Floquet,HH0,J,ep,gx,gy,epsilon,tinst,k)
@@ -87,3 +94,4 @@ println("Go to file ",name1," for Wigner function")
 println("-----------------------" )
 #-------------------------------------
 
+end

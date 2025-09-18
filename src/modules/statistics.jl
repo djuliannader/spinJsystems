@@ -1,8 +1,10 @@
 module statistics
 push!(LOAD_PATH, pwd())
 using LinearAlgebra
-import diagonalization
-import troterization
+include("diagonalization.jl")
+include("troterization.jl")
+using .diagonalization
+using .troterization
 
 
 
