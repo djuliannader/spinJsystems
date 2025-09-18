@@ -25,7 +25,7 @@ To run this repository, please make sure the following environment is available:
 
 ## Usage
 
--For the stationary states of the time-independent LMG manipulate parameters, move to the file /src/main_LMG.jl manipulate parameters and run as:
+- For the stationary states of the time-independent LMG manipulate parameters, move to the file /src/main_LMG.jl manipulate parameters and run as:
 
 ```bash
 julia main_LMG.jl
