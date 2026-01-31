@@ -15,9 +15,9 @@ using .statistics
 k = 1                      # state of interest
 J=50                       # System size
 ep=1.0                     # LMG parameter
-gx=0.75                    # LMG parameter
+gx=-0.95                    # LMG parameter
 gy=0.0                    # LMG parameter
-NN=100                     # Size of the Grid
+NN=100                     # Size of the Grid for phase space
 name1="output/wignertest.dat"     # Wigner output file
 name2="output/husimitest.dat"     # Husimi output file
 # ------------------------- ----

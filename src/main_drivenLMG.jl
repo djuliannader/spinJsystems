@@ -17,12 +17,13 @@ J=50                       # System size
 ep=1.0                     # LMG parameter
 gx=-0.95                   # LMG parameter
 gy= 3*gx                   # LMG parameter
-epsilon = 0.01             # strength of the Kick
-tau = 2.89134              # period of the kick
-NN=100                     # Size of the Grid
+epsilon = 0.01              # strength of the Kick
+#tau = 2.89134              # period of the kick
+tau = 2.5                  # period of the kick
+NN=100                     # Size of the Grid for phase space
 nfloquet = 200             # Time subintervals for Trotterization
-name1="output/wignertest.dat"     # Wigner output file
-name2="output/husimitest.dat"     # Husimi output file
+name1="output/wignertest_driven.dat"     # Wigner output file
+name2="output/husimitest_driven.dat"     # Husimi output file
 # ------------------------- ----
 
 
@@ -58,11 +59,11 @@ fexpval = real(psift*HH0*psif)
 #
 #open("output/resonances.dat","w") do io
 #tint=0.01
-#T = [i*tint for i in 5:400]
+#T = [i*tint for i in 20:500]
 #for tinst in T
 #   Floquet = troterization.troter(HH0,Kop,J,nfloquet,epsilon,tinst)
 #   test1 = statistics.expectation(Floquet,HH0,J,ep,gx,gy,epsilon,tinst,k)
-#   println(io,tinst," ",test1[2]/J)
+#   println(io,tinst," ",test1[2]/J," ",real(test1[3]))
 #   println(tinst/T[length(T)])
 #end
 #end
@@ -80,4 +81,5 @@ println("Go to file ",name2," for Husimi function")
 println("Go to file ",name1," for Wigner function")
 println("-----------------------" )
 #-------------------------------------
+
 

@@ -11,11 +11,9 @@ export wignerf
 export buildingstate
 
 
-function husimif(psi,JJ,NN,name)
+function husimif(rho,JJ,NN,name)
   thetalist = [i*(pi/NN) for i in 1:NN]
   philist = [i*(2*pi/NN) for i in 1:NN]
-  psiad = conj(transpose(psi))
-  rho = psi*psiad
   Jpop = diagonalization.matrixJp(JJ)
   mJstate =[0.0 for i in -JJ:JJ]
   mJstate[1] = 1.0
@@ -57,6 +55,27 @@ function buildingstate(lista,jj)
     psif = psif + lista[i]*psiinst
   end
   return psif
+end
+
+function buildingstaterho(rho,jj)
+  rhodiag = eigen(rho)
+  lam = rhodiag.values
+  rhovectors = rhodiag.vectors
+  ba=SpinBasis(jj)
+  p = zeros(length(ba))
+  rho = diagonaloperator(ba, p)
+  for k in 1:length(lam)
+    psiinst = spindown(ba)
+    lista = [rhovectors[i,k] for i in 1:length(lam)]    
+    psif = lista[1]*psiinst
+    for i in 2:length(lista)
+      psiinst=sigmap(ba)*psiinst/(jj*(jj+1)-((-jj+i-2)*((-jj+i-2)+1)))^(1/2)
+      psif = psif + lista[i]*psiinst
+    end
+  rhoinst = dm(psif)
+  rho = rho + lam[k]*rhoinst    
+  end    
+  return rho
 end
 
 function HLMG_qop(J,ep,gx,gy)
