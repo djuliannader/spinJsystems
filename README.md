@@ -1,16 +1,19 @@
 # driven LMG
-Numerical study of the Floquet states of the Lipkin Meshkov Glick Model with a periodic drive
+Numerical study of states in spin-J systems
 
 clone as:
 
 ```bash
-git clone https://github.com/djuliannader/drivenLMG.git
+git clone https://github.com/djuliannader/spinJsystems
 ```
 
 ## Data 
 
-This repository provides data and codes for the papers for the Floquet states of the LMG by J. Segura, et al.
-The paper are available on PRA.
+This repository provides codes and scripts for the papers
+
+- Avoided crossings and dynamical tunneling close to excited-state quantum phase transitions, by D. J. Nader, C. A. Gonzalez-Rodriguez and S. Lerma-Hernandez and Phys. Rev. E 104, 064116 (2021)
+- Resonant fragility and nonresonant robustness of Floquet eigenstates in kicked spin systems, by Jesus A. Segura-Landa et al.  arXiv:2504.13257v3
+ 
 The repository is currently being developed; please await its completion1.  The files contain a Mathematica notebook, necessary for the analysis of the results.
 
 
