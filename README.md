@@ -1,5 +1,5 @@
 # driven LMG
-Numerical study of states in spin-J systems
+Numerical study of quantum states in spin-J systems
 
 clone as:
 
